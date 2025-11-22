@@ -33,7 +33,7 @@ const Header = ({ activeSection, scrollToSection, currentTheme, toggleTheme }) =
       <div className="container">
         <div className="header-content">
           <div className="logo">
-            <h2>Rahul A</h2>
+            <h2 className="glitch-text">Rahul A</h2>
           </div>
           
           <button 
@@ -51,7 +51,7 @@ const Header = ({ activeSection, scrollToSection, currentTheme, toggleTheme }) =
                   className={activeSection === 'home' ? 'active' : ''}
                   onClick={() => handleNavClick('home')}
                 >
-                  Home
+                  ~/home
                 </button>
               </li>
               <li>
@@ -59,7 +59,7 @@ const Header = ({ activeSection, scrollToSection, currentTheme, toggleTheme }) =
                   className={activeSection === 'portfolio' ? 'active' : ''}
                   onClick={() => handleNavClick('portfolio')}
                 >
-                  Portfolio
+                  ./projects.sh
                 </button>
               </li>
               <li>
@@ -67,7 +67,7 @@ const Header = ({ activeSection, scrollToSection, currentTheme, toggleTheme }) =
                   className={activeSection === 'resume' ? 'active' : ''}
                   onClick={() => handleNavClick('resume')}
                 >
-                  Resume
+                  cat resume.txt
                 </button>
               </li>
               <li>
@@ -75,7 +75,7 @@ const Header = ({ activeSection, scrollToSection, currentTheme, toggleTheme }) =
                   className={activeSection === 'about' ? 'active' : ''}
                   onClick={() => handleNavClick('about')}
                 >
-                  About
+                  whoami
                 </button>
               </li>
               <li>
@@ -83,7 +83,7 @@ const Header = ({ activeSection, scrollToSection, currentTheme, toggleTheme }) =
                   className={activeSection === 'services' ? 'active' : ''}
                   onClick={() => handleNavClick('services')}
                 >
-                  Expertise
+                  --help
                 </button>
               </li>
               <li>
@@ -91,7 +91,7 @@ const Header = ({ activeSection, scrollToSection, currentTheme, toggleTheme }) =
                   className={activeSection === 'contact' ? 'active' : ''}
                   onClick={() => handleNavClick('contact')}
                 >
-                  Contact
+                  ssh_connect
                 </button>
               </li>
             </ul>

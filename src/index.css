@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Fira+Code:wght@400;600&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,43 +7,50 @@
 }
 
 :root {
-  /* Light Theme (Default) */
-  --primary-color: #000000;
-  --secondary-color: #666666;
-  --dark-color: #111111;
-  --light-color: #f8f8f8;
-  --text-color: #000000;
-  --border-color: #e0e0e0;
-  --background-color: #ffffff;
-  --card-background: #ffffff;
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  /* Cyber Theme (Default) - "Green Team" */
+  --primary-color: #00ff41; /* Matrix Green */
+  --secondary-color: #008f11; /* Darker Green */
+  --dark-color: #0d0d0d;
+  --light-color: #111111; /* Very dark grey for section contrast */
+  --text-color: #e0e0e0;
+  --border-color: #333333;
+  --background-color: #000000;
+  --card-background: #0a0a0a;
+  --shadow: 0 0 15px rgba(0, 255, 65, 0.2); /* Green Glow */
   --transition: all 0.3s ease;
-  --accent-color: #ffffff;
-  --hover-color: #333333;
+  --accent-color: #000000;
+  --hover-color: #003b00;
+  --font-main: 'Share Tech Mono', monospace;
+  --font-code: 'Fira Code', monospace;
 }
 
 [data-theme="dark"] {
-  /* Dark Theme */
-  --primary-color: #ffffff;
-  --secondary-color: #cccccc;
-  --dark-color: #f0f0f0;
-  --light-color: #2a2a2a;
+  /* Red Team / High Contrast Mode */
+  --primary-color: #ff0055; /* Cyber Red */
+  --secondary-color: #aa0033;
+  --dark-color: #ffffff;
+  --light-color: #1a1a1a;
   --text-color: #ffffff;
-  --border-color: #444444;
-  --background-color: #1a1a1a;
-  --card-background: #2d2d2d;
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --border-color: #550011;
+  --background-color: #050505;
+  --card-background: #111111;
+  --shadow: 0 0 15px rgba(255, 0, 85, 0.3);
   --accent-color: #000000;
-  --hover-color: #e0e0e0;
+  --hover-color: #330011;
 }
-
+html {
+  scroll-behavior: smooth; /* Enables smooth scrolling globally */
+}
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-main);
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--background-color);
   transition: var(--transition);
   overflow-x: hidden;
+  background-image: linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px; /* Grid background effect */
 }
 
 .container {
@@ -54,28 +63,40 @@ body {
   text-align: center;
   margin-bottom: 60px;
 }
-
+section {
+  /* This pushes the scroll target down by 80px so the header doesn't cover it */
+  scroll-margin-top: 80px; 
+  position: relative;
+}
 .section-header h2 {
   font-size: 2.5rem;
+  font-family: var(--font-code);
   font-weight: 600;
-  color: var(--dark-color);
-  margin-bottom: 20px;
-}
-
-.section-header h2 strong {
   color: var(--primary-color);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
 }
-
+#home {
+  scroll-margin-top: 0;
+}
+/* Cyber Button Styles */
 .btn {
   display: inline-block;
   padding: 12px 30px;
-  border: none;
-  border-radius: 5px;
+  border: 1px solid var(--primary-color);
+  border-radius: 0; /* Square edges for terminal look */
   text-decoration: none;
+  font-family: var(--font-code);
   font-weight: 500;
   cursor: pointer;
   transition: var(--transition);
   font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn i {
@@ -83,125 +104,54 @@ body {
 }
 
 .btn-primary {
-  background-color: var(--primary-color);
-  color: var(--accent-color);
-  border: 2px solid var(--primary-color);
+  background-color: rgba(0, 255, 65, 0.1);
+  color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
 }
 
 .btn-primary:hover {
-  background-color: var(--hover-color);
-  border-color: var(--hover-color);
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+  box-shadow: 0 0 20px var(--primary-color);
   transform: translateY(-2px);
 }
 
 .btn-secondary {
   background-color: transparent;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
+  color: var(--text-color);
+  border-color: var(--secondary-color);
 }
 
 .btn-secondary:hover {
-  background-color: var(--primary-color);
-  color: var(--accent-color);
-  transform: translateY(-2px);
-}
-
-.btn-outline {
-  background-color: transparent;
+  border-color: var(--primary-color);
   color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-}
-
-.btn-outline:hover {
-  background-color: var(--primary-color);
-  color: white;
-}
-
-.image-placeholder {
-  width: 100%;
-  height: 100%;
-  background-color: #f8f9fa;
-  border: 2px dashed #dee2e6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #6c757d;
-  font-size: 0.9rem;
-}
-
-.image-placeholder i {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: #adb5bd;
+  text-shadow: 0 0 8px var(--primary-color);
+  transform: translateY(-2px);
 }
 
 section {
   padding: 80px 0;
-  background-color: var(--background-color);
+  background-color: transparent;
 }
 
-section:nth-child(even) {
-  background-color: var(--light-color);
-}
-
-/* Tablet Styles */
+/* Tablet & Mobile Styles (Keep your existing media queries, just update font sizes if needed) */
 @media (max-width: 1024px) {
-  .container {
-    padding: 0 30px;
-  }
-  
-  .section-header h2 {
-    font-size: 2.2rem;
-  }
-  
-  section {
-    padding: 70px 0;
-  }
+  .container { padding: 0 30px; }
+  .section-header h2 { font-size: 2.2rem; }
+  section { padding: 70px 0; }
 }
 
-/* Mobile Styles */
 @media (max-width: 768px) {
-  .container {
-    padding: 0 20px;
-  }
-  
-  .section-header h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-  }
-  
-  .section-header {
-    margin-bottom: 40px;
-  }
-  
-  section {
-    padding: 50px 0;
-  }
-  
-  .btn {
-    padding: 10px 25px;
-    font-size: 0.95rem;
-  }
+  .container { padding: 0 20px; }
+  .section-header h2 { font-size: 2rem; margin-bottom: 15px; }
+  .section-header { margin-bottom: 40px; }
+  section { padding: 50px 0; }
+  .btn { padding: 10px 25px; font-size: 0.95rem; }
 }
 
-/* Small Mobile Styles */
 @media (max-width: 480px) {
-  .container {
-    padding: 0 15px;
-  }
-  
-  .section-header h2 {
-    font-size: 1.8rem;
-  }
-  
-  section {
-    padding: 40px 0;
-  }
-  
-  .btn {
-    padding: 12px 20px;
-    font-size: 0.9rem;
-    width: 100%;
-  }
+  .container { padding: 0 15px; }
+  .section-header h2 { font-size: 1.8rem; }
+  section { padding: 40px 0; }
+  .btn { padding: 12px 20px; font-size: 0.9rem; width: 100%; }
 }

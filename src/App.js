@@ -11,36 +11,55 @@ import Footer from './components/Footer';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
-  const [currentTheme, setCurrentTheme] = useState('light');
-
-  useEffect(() => {
-    // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    setCurrentTheme(savedTheme);
-    document.documentElement.setAttribute('data-theme', savedTheme);
-  }, []);
+  const [theme, setTheme] = useState('dark'); // Default to dark for cyber theme
 
   const toggleTheme = () => {
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    setCurrentTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
     document.documentElement.setAttribute('data-theme', newTheme);
   };
 
   const scrollToSection = (sectionId) => {
-    setActiveSection(sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Standard smooth scroll (CSS scroll-margin-top handles the offset)
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+      setActiveSection(sectionId);
     }
   };
 
+  // Update active section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'portfolio', 'resume', 'about', 'services', 'contact'];
+      
+      // Find the section that is currently most visible
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // If top of section is somewhat near the top of viewport (allowing for header offset)
+          if (rect.top >= 0 && rect.top <= 300) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="App">
+    <div className="App" data-theme={theme}>
       <Header 
         activeSection={activeSection} 
-        scrollToSection={scrollToSection}
-        currentTheme={currentTheme}
+        scrollToSection={scrollToSection} 
+        currentTheme={theme}
         toggleTheme={toggleTheme}
       />
       <main>

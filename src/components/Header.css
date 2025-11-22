@@ -3,16 +3,17 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--background-color);
+  background-color: rgba(0, 0, 0, 0.8); /* Darker transparency */
   border-bottom: 1px solid var(--border-color);
   z-index: 1000;
   transition: var(--transition);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
 }
 
 .header.scrolled {
-  background-color: rgba(var(--background-color), 0.95);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.95);
+  box-shadow: 0 2px 20px rgba(0, 255, 65, 0.1); /* Subtle green glow */
+  border-bottom: 1px solid var(--primary-color);
 }
 
 .header-content {
@@ -23,10 +24,17 @@
 }
 
 .logo h2 {
+  font-family: var(--font-code);
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--primary-color);
   margin: 0;
+  text-transform: lowercase; /* standard terminal style */
+}
+
+.logo h2::before {
+  content: "> ";
+  color: var(--text-color);
 }
 
 .nav-menu ul {
@@ -41,30 +49,74 @@
   background: none;
   border: none;
   color: var(--text-color);
-  font-size: 1rem;
+  font-family: var(--font-code); /* Monospace font for nav */
+  font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
   padding: 8px 16px;
-  border-radius: 20px;
+  border-radius: 4px; /* Less rounded */
   transition: var(--transition);
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+/* Apply this class to your Logo h2 in Header.js */
+.glitch-text {
   position: relative;
 }
 
+.glitch-text::before,
+.glitch-text::after {
+  content: "Rahul A"; /* Must match your text */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--background-color);
+}
+
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -1px 0 #ff00c1;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -1px 0 #00fff9;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(30px, 9999px, 10px, 0); }
+  5% { clip: rect(80px, 9999px, 90px, 0); }
+  /* ... add more random steps if you want ... */
+  100% { clip: rect(10px, 9999px, 80px, 0); }
+}
+
+@keyframes glitch-anim2 {
+  0% { clip: rect(10px, 9999px, 80px, 0); }
+  100% { clip: rect(90px, 9999px, 20px, 0); }
+}
 .nav-menu button:hover,
 .nav-menu button.active {
-  background-color: var(--primary-color);
-  color: var(--accent-color);
+  background-color: rgba(0, 255, 65, 0.1);
+  color: var(--primary-color);
+  text-shadow: 0 0 5px var(--primary-color);
 }
 
 .nav-menu button.active::after {
   content: '';
   position: absolute;
-  bottom: -2px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   height: 2px;
   background-color: var(--primary-color);
+  transform: none; /* Full width underline */
 }
 
 .theme-toggle {
@@ -73,11 +125,11 @@
 
 .theme-toggle-btn {
   background: none;
-  border: 2px solid var(--border-color);
-  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  color: var(--primary-color);
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 5px; /* Square styling */
   cursor: pointer;
   transition: var(--transition);
   display: flex;
@@ -87,12 +139,8 @@
 
 .theme-toggle-btn:hover {
   border-color: var(--primary-color);
-  color: var(--primary-color);
-  transform: scale(1.1);
-}
-
-.theme-toggle-btn i {
-  font-size: 1.1rem;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+  transform: scale(1.05);
 }
 
 /* Mobile Menu Toggle */
@@ -100,33 +148,19 @@
   display: none;
   background: none;
   border: none;
-  color: var(--text-color);
+  color: var(--primary-color);
   font-size: 1.5rem;
   cursor: pointer;
   padding: 8px;
 }
 
-/* Tablet Styles */
+/* Responsive Styles */
 @media (max-width: 1024px) {
-  .nav-menu ul {
-    gap: 20px;
-  }
-  
-  .nav-menu button {
-    font-size: 0.95rem;
-    padding: 6px 14px;
-  }
+  .nav-menu ul { gap: 20px; }
 }
 
-/* Mobile Styles */
 @media (max-width: 768px) {
-  .header-content {
-    padding: 12px 0;
-  }
-  
-  .logo h2 {
-    font-size: 1.6rem;
-  }
+  .header-content { padding: 12px 0; }
   
   .nav-menu {
     position: fixed;
@@ -134,74 +168,30 @@
     right: -100%;
     width: 280px;
     height: 100vh;
-    background-color: var(--background-color);
-    border-left: 1px solid var(--border-color);
+    background-color: #000000; /* Solid black for mobile menu */
+    border-left: 1px solid var(--primary-color);
     transition: right 0.3s ease;
     padding: 80px 30px 30px;
-    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: -5px 0 20px rgba(0, 255, 65, 0.1);
   }
   
-  .nav-menu.active {
-    right: 0;
-  }
+  .nav-menu.active { right: 0; }
   
-  .nav-menu ul {
-    flex-direction: column;
-    gap: 20px;
-  }
+  .nav-menu ul { flex-direction: column; gap: 20px; }
   
   .nav-menu button {
     width: 100%;
     text-align: left;
     padding: 15px 20px;
-    border-radius: 10px;
-    font-size: 1.1rem;
     border: 1px solid var(--border-color);
   }
   
   .nav-menu button:hover,
   .nav-menu button.active {
-    background-color: var(--primary-color);
-    color: var(--accent-color);
+    background-color: rgba(0, 255, 65, 0.1);
+    color: var(--primary-color);
     border-color: var(--primary-color);
   }
   
-  .mobile-menu-toggle {
-    display: block;
-  }
-  
-  .theme-toggle {
-    margin-left: 15px;
-  }
-  
-  .theme-toggle-btn {
-    width: 35px;
-    height: 35px;
-  }
-}
-
-/* Small Mobile Styles */
-@media (max-width: 480px) {
-  .logo h2 {
-    font-size: 1.4rem;
-  }
-  
-  .nav-menu {
-    width: 100%;
-    right: -100%;
-  }
-  
-  .nav-menu ul {
-    gap: 15px;
-  }
-  
-  .nav-menu button {
-    padding: 12px 15px;
-    font-size: 1rem;
-  }
-  
-  .theme-toggle-btn {
-    width: 32px;
-    height: 32px;
-  }
+  .mobile-menu-toggle { display: block; }
 }

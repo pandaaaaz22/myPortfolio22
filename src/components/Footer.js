@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <p>
-            Copyright © 2025 Rahul | All rights reserved | Built with React and ❤️
+            Copyright © 2025 Rahul | All rights reserved | Built with React and 💚
           </p>
         </div>
       </div>
