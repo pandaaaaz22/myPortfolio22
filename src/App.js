@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
-  const [theme, setTheme] = useState('dark'); // Default to dark for cyber theme
+  const [theme, setTheme] = useState('light'); // Default to light for cyber theme
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';

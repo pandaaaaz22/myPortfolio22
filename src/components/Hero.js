@@ -3,7 +3,7 @@ import './Hero.css';
 import HackerBackground from './HackerBackground'; 
 
 const Hero = ({ id }) => {
-  // --- Main Title Typing Effect State ---
+  // --- Main Title Typing Effect ---
   const [titleText, setTitleText] = useState('');
   const fullTitle = "System.init(User: Rahul_A)";
 
@@ -17,29 +17,31 @@ const Hero = ({ id }) => {
     return () => clearInterval(timer);
   }, []);
 
-  // --- Terminal Logic State ---
+  // --- Terminal Logic ---
   const [input, setInput] = useState('');
   const [history, setHistory] = useState([
     { type: 'output', content: 'Welcome to Rahul OS v1.0.0' },
     { type: 'output', content: 'Type "help" to see available commands.' },
   ]);
-  const terminalEndRef = useRef(null);
+  
+  // FIX: Ref for the container, not a dummy element
+  const terminalBodyRef = useRef(null);
 
-  // Auto-scroll to bottom of terminal
+  // FIX: Auto-scroll logic using scrollTop instead of scrollIntoView
   useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [history]);
+    if (terminalBodyRef.current) {
+      terminalBodyRef.current.scrollTop = terminalBodyRef.current.scrollHeight;
+    }
+  }, [history]); // Runs whenever history updates
 
-  // Handle Command Execution
   const handleCommand = (cmd) => {
     const cleanCmd = cmd.trim().toLowerCase();
     let response = '';
 
-    // Navigation Helper
     const scrollTo = (id) => {
       const section = document.getElementById(id);
       if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
         return `Navigating to ${id}...`;
       }
       return `Error: Section #${id} not found.`;
@@ -59,13 +61,11 @@ const Hero = ({ id }) => {
         break;
 
       case 'about':
-      case 'cd about':
         response = scrollTo('about');
         break;
 
       case 'projects':
       case 'portfolio':
-      case 'cd projects':
         response = scrollTo('portfolio');
         break;
 
@@ -76,20 +76,19 @@ const Hero = ({ id }) => {
 
       case 'contact':
       case 'email':
-      case 'cd contact':
         response = scrollTo('contact');
         break;
 
       case 'resume':
         const link = document.createElement('a');
-        link.href = '/Resume.pdf'; // Ensure file is in public folder
+        link.href = '/Resume.pdf';
         link.download = 'Rahul_A_Resume.pdf';
         link.click();
         response = 'Downloading resume...';
         break;
 
       case 'whoami':
-        response = 'User: Rahul A | Role: Frontend Developer & Cybersecurity Enthusiast';
+        response = 'User: Rahul A | Education: B.Tech in Computer Science | Interests: Cybersecurity & Space Exploration';
         break;
 
       case 'ls':
@@ -98,7 +97,7 @@ const Hero = ({ id }) => {
       
       case 'clear':
         setHistory([]);
-        return; // Exit early to avoid adding the "clear" command itself to history
+        return;
 
       case '':
         response = '';
@@ -122,7 +121,6 @@ const Hero = ({ id }) => {
     }
   };
 
-  // Button Handlers (for the left side buttons)
   const handleViewWork = () => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' });
   const handleDownloadCV = () => {
     const link = document.createElement('a');
@@ -136,7 +134,6 @@ const Hero = ({ id }) => {
       <HackerBackground />
       <div className="container">
         <div className="hero-content">
-          {/* Left Side: Text */}
           <div className="hero-text">
             <h1>
               <span className="typing-text">{titleText}</span>
@@ -157,7 +154,6 @@ const Hero = ({ id }) => {
             </div>
           </div>
 
-          {/* Right Side: Interactive Terminal */}
           <div className="hero-image">
             <div className="terminal-window" onClick={() => document.getElementById('terminalInput')?.focus()}>
               <div className="terminal-header">
@@ -167,8 +163,8 @@ const Hero = ({ id }) => {
                 <div className="terminal-title">user@rahul-portfolio: ~ (Interactive)</div>
               </div>
               
-              <div className="terminal-body">
-                {/* History Rendering */}
+              {/* FIX: Added ref here to control scrolling of this specific container */}
+              <div className="terminal-body" ref={terminalBodyRef}>
                 {history.map((item, index) => (
                   <div key={index} className={`terminal-line ${item.type}`}>
                     {item.type === 'command' ? (
@@ -182,7 +178,6 @@ const Hero = ({ id }) => {
                   </div>
                 ))}
 
-                {/* Input Line */}
                 <div className="terminal-line input-line">
                   <span className="prompt">user@RahulA:~$</span>
                   <input 
@@ -194,10 +189,8 @@ const Hero = ({ id }) => {
                     autoComplete="off"
                     autoFocus
                   />
-                  {/* Blinking block cursor only if input is empty to simulate focus */}
                   {input === '' && <span className="cursor-block">█</span>}
                 </div>
-                <div ref={terminalEndRef} />
               </div>
             </div>
           </div>
@@ -207,4 +200,4 @@ const Hero = ({ id }) => {
   );
 };
 
-export default Hero; 
+export default Hero;
