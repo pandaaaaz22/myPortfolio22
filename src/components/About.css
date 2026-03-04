@@ -78,7 +78,7 @@
   border-radius: 0; 
   object-fit: cover;
   border: 1px solid var(--secondary-color);
-  filter: grayscale(100%) contrast(1.2);
+  filter: grayscale(30%) contrast(1.2);
   transition: var(--transition);
 }
 

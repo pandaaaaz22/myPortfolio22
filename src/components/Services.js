@@ -38,6 +38,12 @@ const Services = ({ id }) => {
       title: 'Database Management Systems',
       description: 'Experience with relational database design, SQL queries, normalization, and database optimization. Working with MySQL, understanding ACID properties, and implementing efficient database solutions for web applications.',
       icon: 'fas fa-database'
+    },
+    {
+      id: 7,
+      title: 'Cybersecurity & CTF',
+      description: 'Actively practicing offensive security via TryHackMe CTFs. Experience with network security, intrusion detection, and building security-focused tools.',
+      icon: 'fas fa-shield-alt'
     }
   ];
 
@@ -45,7 +51,7 @@ const Services = ({ id }) => {
     <section id={id} className="services">
       <div className="container">
         <div className="section-header">
-          <h2>My <strong>Expertise</strong></h2>
+          <h2>What <strong>I Do</strong></h2>
         </div>
         
         <div className="services-grid">

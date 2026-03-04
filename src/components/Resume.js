@@ -32,25 +32,37 @@ const Resume = ({ id }) => {
   ];
 
   const projects = [
-    {
-      id: 1,
-      title: 'Rashi Wedding Planner',
-      description: 'Developed a PHP-MySQL web application for managing wedding services with user sign-up, service booking, and admin dashboard features. Implemented dynamic cost calculation, service availability checks, and responsive UI using Bootstrap, jQuery, and Lightbox.',
-      tech: 'PHP, MySQL, Bootstrap, jQuery, Lightbox'
-    },
-    {
-      id: 2,
-      title: 'IP Address Finder',
-      description: 'A modern, responsive web application that allows users to search for IP addresses and view detailed information including geographical location, ISP details, timezone, and currency. Features an interactive map display powered by Mapbox.',
-      tech: 'React.js, Vite, CSS, Mapbox API'
-    },
-    {
-      id: 3,
-      title: 'Mini IP Command Tool',
-      description: 'The Mini IP Command Tool is a cross-platform command-line application to manage IP/network configuration on Windows and Linux.',
-      tech: 'C++, CMake, OOPs concepts'
-    }
-  ];
+  {
+    id: 1,
+    title: 'IDS_ML',
+    description: 'ML-based Intrusion Detection System that analyzes network traffic to classify security threats.',
+    tech: 'Python, Machine Learning, Network Security'
+  },
+  {
+    id: 2,
+    title: 'Cybersecure-X',
+    description: 'Personal & small-business security toolkit with tools to protect digital assets and stay informed on cybersecurity.',
+    tech: 'FastAPI, React, MongoDB'
+  },
+  {
+    id: 3,
+    title: 'Covid-19 Detection via X-Ray',
+    description: 'Deep learning app to detect COVID-19, Viral Pneumonia, and Normal cases from chest X-rays.',
+    tech: 'PyTorch, Streamlit, Flask'
+  },
+  {
+    id: 4,
+    title: 'ChatPort',
+    description: 'Client-server app enabling real-time chatting and secure file sharing over a network.',
+    tech: 'Python, Sockets, Networking'
+  },
+  {
+    id: 5,
+    title: 'Mini IP Command Tool',
+    description: 'Cross-platform CLI tool to manage IP/network configuration on Windows and Linux.',
+    tech: 'C++, CMake, OOP'
+  }
+];
 
   const skills = [
     { name: 'C', icon: 'fas fa-code' },
@@ -67,8 +79,10 @@ const Resume = ({ id }) => {
     { name: 'DBMS', icon: 'fas fa-database' },
     { name: 'OS', icon: 'fas fa-desktop' },
     { name: 'CN', icon: 'fas fa-network-wired' },
-    { name: 'VS Code', icon: 'fab fa-vscode' },
-    { name: 'Cursor', icon: 'fab fa-cursor' },
+    { name: 'VS Code', icon: 'fas fa-laptop-code' },
+    { name: 'TryHackMe', icon: 'fas fa-flag' },
+    { name: 'Linux', icon: 'fab fa-linux' },
+    { name: 'Nmap', icon: 'fas fa-network-wired' },
   ];
 
   return (

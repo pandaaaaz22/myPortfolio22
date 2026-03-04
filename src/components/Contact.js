@@ -164,6 +164,12 @@ const Contact = ({ id }) => {
                   India
                 </span>
               </li>
+              <li>
+                <i className="fas fa-shield-alt"></i>
+                <span>
+                  TryHackMe: <a href="https://tryhackme.com/p/pandaaaaz22" target="_blank" rel="noopener noreferrer">pandaaaaz22</a>
+                </span>
+              </li>
             </ul>
           </div>
         </div>

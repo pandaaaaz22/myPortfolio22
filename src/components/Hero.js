@@ -57,13 +57,19 @@ const Hero = ({ id }) => {
   - resume      : Download CV
   - whoami      : Display user info
   - clear       : Clear terminal
-  - ls          : List sections`;
+  - ls          : List sections
+  - thm         : Open TryHackMe profile
+  - github       : Open GitHub profile`;
         break;
 
       case 'about':
         response = scrollTo('about');
         break;
-
+      case 'thm':
+        case 'tryhackme':
+        window.open('https://tryhackme.com/p/pandaaaaz22', '_blank');
+        response = 'Opening TryHackMe profile...';
+        break;
       case 'projects':
       case 'portfolio':
         response = scrollTo('portfolio');
@@ -88,9 +94,11 @@ const Hero = ({ id }) => {
         break;
 
       case 'whoami':
-        response = 'User: Rahul A | Education: B.Tech in Computer Science | Interests: Cybersecurity & Space Exploration';
+        response = 'User: Rahul A | B.Tech CSE @ UVCE | Cybersecurity Enthusiast | CTF Player @ TryHackMe | ML & Web Dev';        break;
+      case 'github':
+        window.open('https://github.com/pandaaaaz22', '_blank');
+        response = 'Opening GitHub profile...';
         break;
-
       case 'ls':
         response = 'about/  portfolio/  resume.pdf  contact/  services/';
         break;

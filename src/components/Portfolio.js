@@ -55,11 +55,11 @@ const Portfolio = ({ id }) => {
     },
     {
       id: 7,
-      title: 'LGPhackathon',
+      title: 'Study Buddy',
       category: 'web-development',
       image: '/lgphackathon.png',
       link: 'https://github.com/pandaaaaz22/LGPhackathon',
-      description: 'Hackathon project showcasing innovative web solutions and creative problem-solving approaches.'
+      description: 'A Django-based study room web app built during a hackathon, enabling real-time topic discussions, peer collaboration, and room-based chat.'
     }
   ];
 

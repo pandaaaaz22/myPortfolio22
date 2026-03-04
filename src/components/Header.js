@@ -33,6 +33,7 @@ const Header = ({ activeSection, scrollToSection, currentTheme, toggleTheme }) =
       <div className="container">
         <div className="header-content">
           <div className="logo">
+            <img src="/Logo22.png" alt="Logo" className="logo-img" />
             <h2 className="glitch-text">Rahul A</h2>
           </div>
           
@@ -83,7 +84,7 @@ const Header = ({ activeSection, scrollToSection, currentTheme, toggleTheme }) =
                   className={activeSection === 'services' ? 'active' : ''}
                   onClick={() => handleNavClick('services')}
                 >
-                  --help
+                  expertise.sh
                 </button>
               </li>
               <li>
@@ -96,16 +97,6 @@ const Header = ({ activeSection, scrollToSection, currentTheme, toggleTheme }) =
               </li>
             </ul>
           </nav>
-          
-          <div className="theme-toggle">
-            <button 
-              className="theme-toggle-btn"
-              onClick={toggleTheme}
-              aria-label={`Switch to ${currentTheme === 'light' ? 'dark' : 'light'} mode`}
-            >
-              <i className={`fas fa-${currentTheme === 'light' ? 'moon' : 'sun'}`}></i>
-            </button>
-          </div>
         </div>
       </div>
     </header>

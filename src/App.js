@@ -8,16 +8,10 @@ import About from './components/About';
 import Services from './components/Services';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
-  const [theme, setTheme] = useState('light'); // Default to light for cyber theme
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
-  };
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -55,12 +49,10 @@ function App() {
   }, []);
 
   return (
-    <div className="App" data-theme={theme}>
+    <div className="App">
       <Header 
         activeSection={activeSection} 
-        scrollToSection={scrollToSection} 
-        currentTheme={theme}
-        toggleTheme={toggleTheme}
+        scrollToSection={scrollToSection}
       />
       <main>
         <Hero id="home" />
@@ -71,6 +63,7 @@ function App() {
         <Contact id="contact" />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }

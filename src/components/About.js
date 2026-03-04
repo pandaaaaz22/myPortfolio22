@@ -40,10 +40,16 @@ const About = ({ id }) => {
               My strong foundation in programming, data structures, algorithms, and computer networks 
               provides me with the skills to develop secure applications and explore network security concepts.
             </p>
+            <p>"Actively practicing offensive security and CTF challenges on TryHackMe."</p>
+            
             <div className="about-buttons">
-              <button className="btn btn-primary" onClick={handleHireMe}>
-                <i className="fas fa-handshake"></i> Hire Me
-              </button>
+              <a href="https://tryhackme.com/p/pandaaaaz22" target="_blank" rel="noopener noreferrer">
+                <img 
+                  src="https://tryhackme-badges.s3.amazonaws.com/pandaaaaz22.png"
+                  alt="TryHackMe Badge"
+                  style={{ border: '1px solid var(--primary-color)', height: '60px' }}
+                />
+              </a>
               <button className="btn btn-secondary" onClick={handleDownloadCV}>
                 <i className="fas fa-download"></i> Download CV
               </button>

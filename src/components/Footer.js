@@ -6,9 +6,15 @@ const Footer = () => {
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
-          <p>
-            Copyright © 2025 Rahul | All rights reserved | Built with React and 💚
-          </p>
+          <div className="footer-socials">
+            <a href="https://github.com/pandaaaaz22" target="_blank"><i className="fab fa-github"></i></a>
+            <a href="https://tryhackme.com/p/pandaaaaz22" target="_blank"><i className="fas fa-shield-alt"></i></a>
+            <a href="https://www.linkedin.com/in/rahul-a-7a737b255/" target="_blank"><i className="fab fa-linkedin"></i></a>
+          </div>
+            <div className="footer-brand">
+              <img src="/Logo22.png" alt="Logo" className="footer-logo" />
+              <p>Copyright © 2026 Rahul | All rights reserved | Built with React and 💚</p>
+            </div>
         </div>
       </div>
     </footer>
