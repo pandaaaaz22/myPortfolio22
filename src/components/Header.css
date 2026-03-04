@@ -186,7 +186,8 @@
     border-color: var(--primary-color);
   }
   
-  .mobile-menu-toggle { display: block; }
+  .mobile-menu-toggle { display: block;
+  z-index: 1000; }
 }
 
 @media (max-width: 768px) {
