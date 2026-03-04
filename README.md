@@ -44,11 +44,6 @@ I specialize in creating modern, responsive web applications and have a strong f
 - Focus on cybersecurity and development
 - Professional goals and aspirations
 
-## 🖼️ Portfolio Screenshots
-
-<img src="./public/portfolio .png">
-<img src="./public/portfolio2.png">
-
 ## 🎨 Design Features
 
 ### ✨ **Modern UI/UX**

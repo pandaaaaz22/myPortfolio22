@@ -7,63 +7,63 @@ const Portfolio = ({ id }) => {
   const portfolioItems = [
     {
       id: 1,
-      title: 'ChatPort',
-      category: 'application',
-      image: '/chatport.png',
-      link: 'https://github.com/rahul-a-22/ChartPort',
-      description: 'ChatPort is a Python-based client-server application that enables real-time chatting and secure file sharing over a network.'
+      title: 'IDS_ML',
+      category: 'machine-learning',
+      image: '/ids_ml.png',
+      link: 'https://github.com/pandaaaaz22/IDS_ML',
+      description: 'A machine learning-based Intrusion Detection System (IDS) that analyzes network traffic to identify and classify potential security threats, enhancing cybersecurity measures for organizations.'
     },
     {
       id: 2,
-      title: 'Rashi Wedding Planner',
-      category: 'web-development',
-      image: '/wedding.png',
-      link: 'https://github.com/rahul-a-22/rashi_wedding_planner',
-      description: 'PHP-MySQL web application for managing wedding services with user sign-up, service booking, and admin dashboard features.'
-    },
-    {
-      id: 3,
-      title: 'IP Address Finder',
-      category: 'web-development',
-      image: 'ipAdress.png',
-      link: 'https://github.com/rahul-a-22/IP_Adress_Finder',
-      description: 'Modern web application to search IP addresses with geographical location, ISP details, and interactive map display.'
-    },
-    {
-      id: 4,
-      title: 'Mini IP Command Tool',
-      category: 'application',
-      image: '/mini_ip_tool.png',
-      link: 'https://github.com/rahul-a-22/mini_ip_command_tool',
-      description: 'The Mini IP Command Tool is a cross-platform command-line application to manage IP/network configuration on Windows and Linux.'
-    },
-    {
-      id: 5,
-      title: 'PassGuard',
-      category: 'web-development',
-      image: '/addPassword.png',
-      link: 'https://github.com/rahul-a-22/PassGuard',
-      description: 'A full-stack PassGuard application built with React, Node.js, Express, and MySQL. This application allows users to securely store and manage their passwords with features like authentication, password encryption, and a user-friendly interface.'
-    },
-    {
-      id: 6,
       title: 'Covid-19 Detection using X-Ray Images',
       category: 'machine-learning',
       image: '/covid-19.png',
-      link: 'https://github.com/rahul-a-22/covid_19_detection_X-ray',
+      link: 'https://github.com/pandaaaaz22/covid_19_detection_X-ray',
       description: 'A comprehensive web application that uses deep learning to detect COVID-19, Viral Pneumonia, and Normal cases from chest X-ray images. Built with Streamlit frontend and Flask backend API, powered by PyTorch.'
+    },
+    {
+      id: 3,
+      title: 'Cybersecure-X',
+      category: 'web-development',
+      image: '/cybersecure-x.png',
+      link: 'https://github.com/pandaaaaz22/Cybersecure-X',
+      description: 'CyberSecureX is a modern, lightweight, and accessible personal & small-business security toolkit built with FastAPI, React, and MongoDB. It offers a range of security tools and resources to help users protect their digital assets and stay informed about cybersecurity best practices.'
+    },
+    {
+      id: 4,
+      title: 'ChatPort',
+      category: 'application',
+      image: '/chatport.png',
+      link: 'https://github.com/pandaaaaz22/ChartPort',
+      description: 'ChatPort is a Python-based client-server application that enables real-time chatting and secure file sharing over a network.'
+    },
+    {
+      id: 5,
+      title: 'Rashi Wedding Planner',
+      category: 'web-development',
+      image: '/wedding.png',
+      link: 'https://github.com/pandaaaaz22/rashi_wedding_planner',
+      description: 'PHP-MySQL web application for managing wedding services with user sign-up, service booking, and admin dashboard features.'
+    },
+    {
+      id: 6,
+      title: 'Mini IP Command Tool',
+      category: 'application',
+      image: '/mini_ip_tool.png',
+      link: 'https://github.com/pandaaaaz22/mini_ip_command_tool',
+      description: 'The Mini IP Command Tool is a cross-platform command-line application to manage IP/network configuration on Windows and Linux.'
     },
     {
       id: 7,
       title: 'LGPhackathon',
       category: 'web-development',
       image: '/lgphackathon.png',
-      link: 'https://github.com/rahul-a-22/LGPhackathon',
+      link: 'https://github.com/pandaaaaz22/LGPhackathon',
       description: 'Hackathon project showcasing innovative web solutions and creative problem-solving approaches.'
     }
   ];
 
-  const filters = ['all', 'web-development', 'application', 'machine-learning'];
+  const filters = ['all', 'web-development', 'machine-learning', 'application'];
 
   const filteredItems = activeFilter === 'all'
     ? portfolioItems
