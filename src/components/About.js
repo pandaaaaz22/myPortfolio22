@@ -15,13 +15,6 @@ const About = ({ id }) => {
     document.body.removeChild(link);
   };
 
-  const handleHireMe = () => {
-    // Scroll to contact section
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section id={id} className="about">
