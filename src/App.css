@@ -1,5 +1,6 @@
 .App {
   min-height: 100vh;
+  min-width: 100%;
   background-color: var(--background-color);
   color: var(--text-color);
   transition: var(--transition);
